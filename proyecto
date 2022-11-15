@@ -1,0 +1,26 @@
+# interfaz gráfica
+
+import tkinter
+import random
+juego = tkinter.Tk()
+juego.title("Piedra, papel o tijeras!!")
+juego.geometry("400x400")
+juego.configure(bg="#50A8BF")
+saludo = tkinter.Label(juego,text="Bienvenido a piedra, papel o tijeras", bg="red")
+puntaje_jugador = 0
+puntaje_comptuador = 0
+
+#hay un problema con los colores en macOS
+boton_tijeras = tkinter.Button(juego, text="TIJERAS ✂", bg='red',activebackground="purple",fg="brown",pady="5")
+boton_piedra = tkinter.Button(juego, text="PIEDRA 🪨", bg="red",activebackground="purple",fg="green",pady="5")
+boton_papel = tkinter.Button(juego, text="PAPEL 📄", bg="red",activebackground="purple",fg="purple",pady="5")
+
+boton_tijeras.grid(row=1,column=0)
+boton_piedra.grid(row=1,column=1)
+boton_papel.grid(row=1,column=2)
+saludo.grid(row=0,column=1)
+
+
+
+
+juego.mainloop()
