@@ -10,80 +10,78 @@ saludo = tkinter.Label(juego,text="Bienvenido a piedra, papel o tijeras", bg="re
 puntaje_jugador = 0
 puntaje_comptuador = 0
 
-marco= tkinter.LabelFrame(juego, text= "Rock Paper Scissor", font= ('Century 20 bold'),labelanchor= "n",bd=5,bg= "khaki3",width= 600, height= 450, cursor= "target")
+marco= tkinter.LabelFrame(juego, text= "Rock Paper Scissor", font= ('Century 20 bold'),labelanchor= "n",bd=5,bg= "khaki3",width= 500, height= 350, cursor= "spider")
 marco.grid(padx=100, pady=100)
 
 #labels jugador y computador
-l1= tkinter.Label(marco, text="Player", font= ('Helvetica 18 bold'))
+l1= tkinter.Label(marco, text="Jugador", font= ('Helvetica 18 bold'))
 l1.place(relx= .18, rely= .1)
 
-l3= tkinter.Label(marco, text="Computer", font= ('Helvetica 18 bold'))
-l3.place(relx= .65, rely= .1)
+l2= tkinter.Label(marco, text="Computador", font= ('Helvetica 18 bold'))
+l2.place(relx= .45, rely= .1)
+
+l3= tkinter.Label(marco, text="", font="Helvetica 18 bold")
+l3.place(relx= .65, rely=.1)
 
 # funciones para cada opción
-def tijeras():
-   value = computadora()
+def scissors():
+   value = computadora
    if value == "piedra":
       match_result = "Perdiste"
    elif value == "tijeras":
       match_result = "Empate"
    else:
       match_result = "Ganaste!!"
-   #label.config(text = match_result)
    l1.config(text = "tijeras")
-   l3.config(text = value)
-   button_disable()
+   l2.config(text = value)
+   l3.config(text = match_result)
+   boton_disable()
 
 
-def papel():
-   value = computadora()
+def paper():
+   value = computadora
    if value == "tijeras":
       match_result = "Perdiste"
    elif value == "papel":
       match_result = "Empate"
    else:
       match_result = "Ganaste!!"
-   #label.config(text = match_result)
    l1.config(text = "papel")
-   l3.config(text = value)
-   button_disable()
+   l2.config(text = value)
+   l3.config(text = match_result)
+   boton_disable()
 
-def piedra():
-   value = computadora()
+def rock():
+   value = computadora
    if value == "papel":
       match_result = "Perdiste"
    elif value == "piedra":
       match_result = "Empate"
    else:
       match_result = "Ganaste!!"
-   #label.config(text = match_result)
    l1.config(text = "piedra")
-   l3.config(text = value)
-   button_disable()
+   l2.config(text = value)
+   l3.config(text = match_result)
+   boton_disable()
 
 def reset():
     boton_tijeras.config(state= "active")
     boton_papel.config(state= "active")
     boton_piedra.config(state= "active")
-    l1.config(text = "Player")
-    l3.config(text = "Computer")
-    #label.config(text = "")
+    l1.config(text = "Jugador")
+    l2.config(text = "Computadora")
+    l3.config(text="")
 
-#problema con los colores en macOS
 #botones de cada opcion
-boton_tijeras = tkinter.Button(juego, text="TIJERAS ✂", highlightbackground='red',activebackground="purple",fg="brown",pady="5",command=tijeras)
-boton_piedra = tkinter.Button(juego, text="PIEDRA 🪨", bg="red",activebackground="purple",fg="green",pady="5",command=piedra)
-boton_papel = tkinter.Button(juego, text="PAPEL 📄", bg="red",activebackground="purple",fg="purple",pady="5",command=papel)
-boton_reset = tkinter.Button(juego,text="RESET", fg="white", command=reset)
+boton_tijeras = tkinter.Button(juego, text="TIJERAS ✂", highlightbackground="yellow",pady="5",command=scissors)
+boton_piedra = tkinter.Button(juego, text="PIEDRA 🪨", bg="red",highlightbackground="yellow",pady="5",command=rock)
+boton_papel = tkinter.Button(juego, text="PAPEL 📄", bg="red",highlightbackground="yellow",pady="5",command=paper)
+boton_reset = tkinter.Button(juego,text="RESET", fg="red", command=reset)
 
-boton_tijeras(relx= .58, rely= .62)
+boton_tijeras.place(relx= .58, rely= .62)
 boton_piedra.place(relx=.25, rely= .62)
-boton_papel(relx= .41,rely= .62)
-
-#boton_tijeras.grid(row=1,column=0)
-#boton_piedra.grid(row=1,column=1)
-#boton_papel.grid(row=1,column=2)
-#saludo.grid(row=0,column=1)
+boton_papel.place(relx= .41,rely= .62)
+boton_reset.place(relx=.8, rely=.62)
 
 
 opciones=["piedra","papel","tijeras"]
@@ -91,11 +89,10 @@ computadora = random.choice(opciones)
 
 
 #desactivar los botones despues de cada partida
-def button_disable():
+def boton_disable():
    boton_papel.config(state= "disabled")
    boton_piedra.config(state= "disabled")
    boton_tijeras.config(state= "disabled")
 
 
 juego.mainloop()
-
