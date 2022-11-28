@@ -9,7 +9,7 @@ puntaje_jugador = 0
 puntaje_comptuador = 0
 
 #marco
-marco= tkinter.LabelFrame(juego, text= "Rock Paper Scissor", font= ('Oswald 20 bold'),labelanchor= "n",bd=5,bg= "goldenrod",width= 500, height= 350, cursor= "spider")
+marco= tkinter.LabelFrame(juego, text= "Piedra, papel o tijeras", font= ('Oswald 20 bold'),labelanchor= "n",bd=5,bg= "goldenrod",width= 500, height= 350, cursor= "spider")
 marco.grid(padx=100, pady=100)
 #marco.pack(expand=True, fill="both")
 
